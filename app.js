@@ -16,6 +16,7 @@ const getNama = document.getElementById('nama');
 const getUmur = document.getElementById('umur');
 const getUang = document.getElementById('uangSaku');
 const bodyPendaftar = document.getElementById("body-pendaftar");
+const target = document.getElementById('target');
 
 const arrPerson = []
 async function btnSubmit() {
@@ -64,6 +65,8 @@ async function btnHitung(){
     console.log(avgUmur);
     console.log(totalUang);
     console.log(avgUang);
+    
+    target.innerHTML = `Rata rata Umur ${avgUmur} dan rata rata Uang Saku ${avgUang}`
 
 }
 
