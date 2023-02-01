@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-200 text-black">
+    <div class="heading flex justify-center m-3">
+        <h3 class="text-3xl font-bold">Form Registrasi</h3>
+    </div>
+    <!-- Registrasi -->
+    <div class="container-formList flex justify-around items-center m-10">
+        <div class="border border-solid rounded-md border-white w-[320px]">
+            <div class="form-in m-3">
+                <h3>Form Registrasi :</h3>
+                <label> Name : </label><br>
+                <input id="nama" class="m-3 rounded-md w-64" type="text">
+                <br>
+                <label>Umur :</label> <br>
+                <input id="umur" class="m-3 rounded-md w-64" type="number">
+                <br>
+                <label>Uang Saku : </label><br>
+                <input id="uangSaku" class="m-3 rounded-md w-64" type="number">
+                <br>
+                <button onclick="btnSubmit()" class="m-3 rounded-md border border-solid border-white w-20 h-9 hover:bg-slate-800 hover:text-white">Submit</button>
+            </div>
+        </div>
+        <!-- List Pendaftar -->
+        <div class="border border-solid rounded-md border-white w-[420px]">
+            <div class="m-3">
+                <h3>List Pendaftar :</h3>
+                <table id="table-pendaftar" class="w-[380px] border border-solid border-white">
+                    <thead>
+                        <tr>
+                            <th class="border border-solid border-white">Nama</th>
+                            <th class="border border-solid border-white">Umur</th>
+                            <th class="border border-solid border-white">Uang Saku</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-pendaftar"></tbody>
+                </table>
+            </div>
+            <button onclick="btnHitung()" class="m-3 rounded-md border border-solid border-white w-36 h-9 hover:bg-slate-800 hover:text-white">Hitung Rata - Rata</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
