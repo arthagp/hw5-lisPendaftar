@@ -31,43 +31,35 @@ async function btnSubmit() {
     } else {
         const pendaftar = new AnakSekolah(getNama.value, getUmur.value, getUang.value)
         arrPerson.push(pendaftar)
-        kumpulanUmur.push(getUmur.value);
-        kumpulanUang.push(getUang.value);
         await renderTable();
         console.log(arrPerson);
-        alert("data berhasil tersimpan");
-
+        alert("data berhasil tersimpan");   
     }
-
 }
 
 let avgUmur = 0;
 let avgUang = 0;
-let kumpulanUmur = [];
-let kumpulanUang = [];
 async function btnHitung(){
     let totalUmur = 0;
-    for (let index = 0; index < kumpulanUmur.length; index++) {
-        let resultUmur = await kumpulanUmur[index];
+    for (let index = 0; index < arrPerson.length; index++) {
+        let resultUmur = await arrPerson[index].umur;
         let numUmur = parseInt(resultUmur);
         totalUmur += numUmur
+        avgUmur = totalUmur / arrPerson.length;
     }
     let totalUang = 0
-    for (let index = 0; index < kumpulanUang.length; index++) {
-        let resultUang = await kumpulanUang[index];
+    for (let index = 0; index < arrPerson.length; index++) {
+        let resultUang = await arrPerson[index].uang;
         let numUang = parseInt(resultUang);
         totalUang += numUang
-        
+        avgUang = totalUang / arrPerson.length;
     }
-    avgUmur = totalUmur / kumpulanUmur.length;
-    avgUang = totalUang / kumpulanUang.length;
-    console.log(totalUmur);
-    console.log(avgUmur);
-    console.log(totalUang);
-    console.log(avgUang);
+    console.log(`total Umur ${totalUmur}`);
+    console.log(`rata Umur ${avgUmur}`);
+    console.log(`total uang ${totalUang}`);
+    console.log(`rata uang ${avgUang}`);
     
     target.innerHTML = `Rata rata Umur ${avgUmur} dan rata rata Uang Saku ${avgUang}`
-
 }
 
 async function renderTable() {
